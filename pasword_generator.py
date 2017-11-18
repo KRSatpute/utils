@@ -1,12 +1,9 @@
 """
- generate a strong password of desired length
+ Generate a strong password of desired length without repeating any
+ characters
 """
-
 import string
 import random
-
-PASS_LEN = int(raw_input("Password Length: "))
-PASSWORD = ''
 
 
 def randomizer():
@@ -59,10 +56,18 @@ def generate_password(password_length):
                            randomizer()
                        ) for _ in range(password_length))
     # Logic for password strictness
-    if password_is_strict(password):
-        return password
-    else:
-        return generate_password(password_length)
+    if not password_is_strict(password):
+        generate_password(password_length)
 
-PASSWORD = generate_password(PASS_LEN)
-print PASSWORD
+    return password
+
+
+def main():
+    """
+    Main. Running the code
+    """
+    pass_len = int(raw_input("Password Length: "))
+    print generate_password(pass_len)
+
+if __name__ == "__main__":
+    main()
