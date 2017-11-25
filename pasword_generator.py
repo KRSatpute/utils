@@ -19,7 +19,7 @@ def randomizer():
                    for _ in range(len(password_characters)))
 
 
-def password_is_strict(password):
+def is_strict_password(password):
     """ check password strictness """
     lowercase = False
     uppercase = False
@@ -56,7 +56,7 @@ def generate_password(password_length):
                            randomizer()
                        ) for _ in range(password_length))
     # Logic for password strictness
-    if not password_is_strict(password):
+    if not is_strict_password(password):
         generate_password(password_length)
 
     return password
