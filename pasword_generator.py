@@ -69,5 +69,6 @@ def main():
     pass_len = int(raw_input("Password Length: "))
     print generate_password(pass_len)
 
+
 if __name__ == "__main__":
     main()
