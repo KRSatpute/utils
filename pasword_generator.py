@@ -66,8 +66,8 @@ def main():
     """
     Main. Running the code
     """
-    pass_len = int(raw_input("Password Length: "))
-    print generate_password(pass_len)
+    pass_len = int(input("Password Length: "))
+    print(generate_password(pass_len))
 
 
 if __name__ == "__main__":

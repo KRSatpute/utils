@@ -9,7 +9,7 @@ def enum(*sequential, **named):
     values back into names
     """
     enums = dict(((x, i) for i, x in enumerate(sequential)), **named)
-    reverse = dict((value, key) for key, value in enums.iteritems())
+    reverse = dict((value, key) for key, value in enums.items())
     enums['get_name'] = reverse
     return type('Enum', (), enums)
 
@@ -21,10 +21,10 @@ def main():
     numbers = enum("ZERO", ONE=1, TWO=2, THREE='three')
 
     # pylint: disable=no-member
-    print numbers.ZERO
-    print numbers.ONE
-    print numbers.THREE
-    print numbers.get_name["three"]
+    print(numbers.ZERO)
+    print(numbers.ONE)
+    print(numbers.THREE)
+    print(numbers.get_name["three"])
 
 
 if __name__ == "__main__":
