@@ -28,21 +28,19 @@ def is_strict_password(password):
 
     for character in password:
         # for every character check if
-        if character in string.ascii_lowercase:
+        if (not lowercase) and (character in string.ascii_lowercase):
             # at least one character is lower[a-z]
             lowercase = True
-        elif character in string.ascii_uppercase:
+        elif (not uppercase) and (character in string.ascii_uppercase):
             # at least one character is upper[A-Z]
             uppercase = True
-        elif character in string.digits:
+        elif (not digits) and (character in string.digits):
             # at least one character is a number[0-9]
             digits = True
-        elif character in string.punctuation:
+        elif (not punctuations) and (character in string.punctuation):
             # at least one character is special character
             # !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
             punctuations = True
-        else:
-            return False
 
     return lowercase and uppercase and\
         digits and punctuations
