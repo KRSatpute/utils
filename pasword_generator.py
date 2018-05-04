@@ -57,7 +57,7 @@ def generate_password(password_length):
                        ) for _ in range(password_length))
     # Logic for password strictness
     if not is_strict_password(password):
-        generate_password(password_length)
+        password = generate_password(password_length)
 
     return password
 
