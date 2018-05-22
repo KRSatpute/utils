@@ -6,17 +6,23 @@ import string
 import random
 
 
-def randomizer():
+def randomizer(password_length):
     """ randomize characters of ascii letters """
     password_characters = (
         string.ascii_lowercase + string.ascii_uppercase +
         string.digits + string.punctuation
         )
-    return "".join(random.choice
-                   (
-                       password_characters
-                   )
-                   for _ in range(len(password_characters)))
+
+    random_chars = "".join(random.choice(password_characters)
+                           for _ in range(len(password_characters)))
+
+    passw = ""
+    for _ in range(password_length):
+        char = random.choice(random_chars)
+        random_chars = [c for c in random_chars if c != char]
+        passw += char
+
+    return passw
 
 
 def is_strict_password(password):
@@ -49,10 +55,8 @@ def is_strict_password(password):
 def generate_password(password_length):
     """ generate strong password """
     # Logic for password strength
-    password = ''.join(random.choice
-                       (
-                           randomizer()
-                       ) for _ in range(password_length))
+    password = randomizer(password_length)
+
     # Logic for password strictness
     if not is_strict_password(password):
         password = generate_password(password_length)
