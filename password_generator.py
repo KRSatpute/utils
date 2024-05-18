@@ -9,6 +9,7 @@ Password requirements:
 
 Example:
     >>> Password Length: 12
+    >>> Provide Special Characters (optional):
     >>> A#v!10_kJzxL
     >>> Password Length: 14
     >>> Provide Special Characters (optional): &*#@()
@@ -89,6 +90,7 @@ def main() -> None:
 
     Example:
         >>> Password Length: 12
+        >>> Provide Special Characters (optional):
         >>> A#v!10_kJzxL
         >>> Password Length: 14
         >>> Provide Special Characters (optional): &*#@()
